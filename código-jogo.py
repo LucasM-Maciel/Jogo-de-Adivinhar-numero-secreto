@@ -14,9 +14,26 @@ def verificarpluralsobrando(tentativa):
         return "tentativa"
     else:
         return "tentativas"
+def pergunta_numero_inteiro(dificuldade):
+     while True:
+        try:
+            numero = int(input(f"Tente acertar um número de 1 a {10*dificuldade}"))
+            return numero
+        except ValueError:
+            print("Não é número")
+            continue
     
+def verificar_inteiro_dificuldade():
+    while True:
+        try:
+            dificuldade=int(input("Olá seja bem vindo! Esse é o jogo do número misterioso escolha a dificuldade de 1 a 3\n número 4 para finalizar o jogo e ver sua pontuação"))
+            return dificuldade
+        except ValueError:
+            print("Não é número")
+            continue
+
 while True:
-    dificuldade= int(input("Olá seja bem vindo! Esse é o jogo do número misterioso escolha a dificuldade de 1 a 3\n número 4 para finalizar o jogo e ver sua pontuação"))
+    dificuldade= verificar_inteiro_dificuldade()
     if dificuldade== 4:
         break
     elif dificuldade==1:
@@ -26,7 +43,7 @@ while True:
         while tentativas_sobrando>0:
             palavra_tentativa_sobrando = verificarpluralsobrando(tentativas_sobrando)
             palavra_tentativa_usadas = verificarpluralusadas(tentativas_usadas)
-            desafio_nivel1 = int(input("Tente acertar um número de 1 a 10"))
+            desafio_nivel1 = pergunta_numero_inteiro(dificuldade)
             if desafio_nivel1 > 10 or desafio_nivel1<1:
                 print("Número inválido, tente um número de 1 a 10")
                 continue
@@ -53,7 +70,7 @@ while True:
         while tentativas_sobrando>0:
             palavra_tentativa_sobrando = verificarpluralsobrando(tentativas_sobrando)
             palavra_tentativa_usadas = verificarpluralusadas(tentativas_usadas)
-            desafio_nivel2 = int(input("Tente acertar um número de 1 a 20"))
+            desafio_nivel2 = pergunta_numero_inteiro(dificuldade)
             if desafio_nivel2 > 20 or desafio_nivel2<1:
                 print("Número inválido, tente um número de 1 a 20")
                 continue
@@ -78,7 +95,7 @@ while True:
         while tentativas_sobrando>0:
             palavra_tentativa_sobrando = verificarpluralsobrando(tentativas_sobrando)
             palavra_tentativa_usadas = verificarpluralusadas(tentativas_usadas)
-            desafio_nivel3 = int(input("Tente acertar um número de 1 a 30"))
+            desafio_nivel3 = pergunta_numero_inteiro(dificuldade)
             if desafio_nivel3 > 30 or desafio_nivel3<1:
                 print("Número inválido, tente um número de 1 a 30")
                 continue
@@ -107,4 +124,3 @@ else:
     elogio = "Adivinhador Supremo!"
     
 print(f"\nparabéns você fez {pontuacao} pontos!\n {elogio}")
-    
